@@ -1,25 +1,28 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
 
-function App() {
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
+import Application from './src/screens/Application/index.js';
+import Login from './src/screens/Login/index.js';
+
+const Stack = createStackNavigator();
+
+export default function App() {
   return (
-    <View style={styles.background}>
-      <Text style={styles.text}>Flick Analytics</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator 
+        initialRouteName='Login'
+        screenOptions={{
+          headerShown: false
+        }}
+      >
+
+        <Stack.Screen name='Login' component={Login}/>
+        <Stack.Screen name='Application' component={Application}/>
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  background: {
-    backgroundColor: '#fff',
-    flex: 1,
-    justifyContent: 'center',
-  },
-});
-
-export default App;
