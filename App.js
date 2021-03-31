@@ -17,12 +17,9 @@ export default function App() {
           headerShown: false
         }}
       >
-
         <Stack.Screen name='Login' component={Login}/>
         <Stack.Screen name='Application' component={Application}/>
-
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-

@@ -4,7 +4,7 @@ import {Text, View, StyleSheet} from 'react-native';
 export default function Dashboard({ navigation }) {
   return (
     <View style={styles.background}>
-      <Text style={styles.text}>Dashboard</Text>
+      <Text style={styles.text}>Search</Text>
     </View>
   );
 }
