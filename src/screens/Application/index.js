@@ -6,35 +6,42 @@ import Bookmarks from './Bookmarks/index.js';
 import Search from './Search/index.js';
 import Settings from './Settings/index.js';
 
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 const Tab = createBottomTabNavigator();
 
 export default function Application() {
   return (
-    <Tab.Navigator 
+    <Tab.Navigator
       initialRouteName='Dashboard'
-      
-      // Should uncomment this block later when dealing with style and icons
-      /*
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
-
           if (route.name === 'Dashboard') {
-            iconName = focused ? 'ios-information-circle' : 'ios-information-circle-outline';
+            iconName = focused ? 'home-sharp' : 'home-outline';
           } else if (route.name === 'Search') {
-            iconName = focused ? 'ios-list-box' : 'ios-list';
+            iconName = focused ? 'search-sharp' : 'search-outline';
           } else if (route.name === 'Bookmarks') {
-            iconName = focused ? 'ios-list-box' : 'ios-list';
+            iconName = focused ? 'bookmarks' : 'bookmarks-outline';
           } else if (route.name === 'Settings') {
-            iconName = focused ? 'ios-list-box' : 'ios-list';
+            iconName = focused ? 'settings-sharp' : 'settings-outline';
           }
-
           // You can return any component that you like here!
-          return <Ionicons name={iconName} size={size} color={color} />;
+          return <Ionicons name={iconName} size={28} color={'blue'} />;
         },
       })}
-      */
-
+      backBehavior={'initialRoute'}
+      tabBarOptions={{
+        showLabel: false,
+        activeTintColor: '#cd077d',
+        inactiveTintColor: 'grey',
+        style:{
+          borderTopLeftRadius: 21, 
+          borderTopRightRadius: 21,
+          position: 'absolute',
+          backgroundColor: 'white',
+        }
+      }}
     >
       <Tab.Screen name="Dashboard" component={Dashboard}/>
       <Tab.Screen name="Search" component={Search}/>
@@ -43,4 +50,3 @@ export default function Application() {
     </Tab.Navigator>
   );
 }
-
