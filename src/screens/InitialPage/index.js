@@ -11,10 +11,19 @@ export default function Login({ navigation }) {
 
       <TouchableOpacity 
         style={styles.button}
-        onPress={() => navigation.navigate('Application')}
+        onPress={() => navigation.navigate('Login')}
       >
         <Text style={styles.text}>
           Login
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+        style={styles.button}
+        onPress={() => navigation.navigate('Register')}
+      >
+        <Text style={styles.text}>
+          Cadastrar
         </Text>
       </TouchableOpacity>
 

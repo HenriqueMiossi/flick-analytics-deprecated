@@ -1,23 +1,17 @@
 import React from 'react';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 
-export default function Login({ navigation }) {
+export default function Register({ navigation }) {
   return (
     <View style={styles.background}>
-
-      <Text style={styles.title}>
-        Flick Analytics
-      </Text>
-
-      <TouchableOpacity 
-        style={styles.button}
-        onPress={() => navigation.navigate('Application')}
-      >
-        <Text style={styles.text}>
-          Login
+      <TouchableOpacity>
+        <Text 
+          style={styles.text}
+          onPress={() => navigation.navigate('Application')}
+        >
+          Register
         </Text>
       </TouchableOpacity>
-
     </View>
   );
 }
@@ -35,7 +29,7 @@ const styles = StyleSheet.create({
     color: 'white'
   },
   background: {
-    backgroundColor: 'white',
+    backgroundColor: 'red',
     flex: 1,
     justifyContent: 'center',
   },
