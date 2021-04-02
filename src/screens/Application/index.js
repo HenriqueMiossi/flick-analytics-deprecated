@@ -1,12 +1,11 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Dashboard from './Dashboard/index.js';
 import Bookmarks from './Bookmarks/index.js';
 import Search from './Search/index.js';
 import Settings from './Settings/index.js';
-
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
 
@@ -27,7 +26,7 @@ export default function Application() {
             iconName = focused ? 'settings-sharp' : 'settings-outline';
           }
           // You can return any component that you like here!
-          return <Ionicons name={iconName} size={28} color={'blue'} />;
+          return <Ionicons name={iconName} size={28} color={'#B5304C'} />;
         },
       })}
       backBehavior={'initialRoute'}

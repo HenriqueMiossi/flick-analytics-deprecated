@@ -1,33 +1,41 @@
 import React from 'react';
-import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity, StatusBar, SafeAreaView} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
-export default function Login({ navigation }) {
+export default function InitialPage({ navigation }) {
   return (
-    <View style={styles.background}>
-
-      <Text style={styles.title}>
-        Flick Analytics
-      </Text>
-
-      <TouchableOpacity 
-        style={styles.button}
-        onPress={() => navigation.navigate('Login')}
+    <>
+      <LinearGradient 
+        style={styles.background} 
+        colors={['#B5304C', '#DC8875']}
+        start={{x: 0, y: 0}} 
+        end={{x: 1, y: 1}}
       >
-        <Text style={styles.text}>
-          Login
-        </Text>
-      </TouchableOpacity>
+        <SafeAreaView>
+          <Text style={styles.title}>
+            Flick Analytics
+          </Text>
 
-      <TouchableOpacity 
-        style={styles.button}
-        onPress={() => navigation.navigate('Register')}
-      >
-        <Text style={styles.text}>
-          Cadastrar
-        </Text>
-      </TouchableOpacity>
+          <TouchableOpacity 
+            style={styles.loginButton}
+            onPress={() => navigation.navigate('Login')}
+          >
+            <Text style={styles.loginText}>
+              Login
+            </Text>
+          </TouchableOpacity>
 
-    </View>
+          <TouchableOpacity 
+            style={styles.registerButton}
+            onPress={() => navigation.navigate('Register')}
+          >
+            <Text style={styles.registerText}>
+              Cadastrar
+            </Text>
+          </TouchableOpacity>
+        </SafeAreaView>
+      </LinearGradient>
+    </>
   );
 }
 
@@ -35,20 +43,43 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 36,
     textAlign: 'center',
-    paddingBottom: 20
+    paddingBottom: 20,
+    color: 'white',
+    fontWeight: 'bold',
+    marginBottom: 50,
   },
-  text: {
-    fontSize: 18,
+  loginText: {
+    fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: 'white'
+    color: 'white',
+  },
+  registerText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#B5304C',
   },
   background: {
-    backgroundColor: 'white',
     flex: 1,
     justifyContent: 'center',
   },
-  button: {
-    backgroundColor: 'green'
+  loginButton: {
+    backgroundColor: '#C5545D',
+    padding: 10,
+    margin: 20,
+    borderRadius: 40,
+    height: 60,
+    justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: 'white',
+  },
+  registerButton: {
+    backgroundColor: 'white',
+    padding: 10,
+    margin: 20,
+    borderRadius: 40,
+    height: 60,
+    justifyContent: 'center',
   },
 });

@@ -1,18 +1,21 @@
 import React from 'react';
-import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity, SafeAreaView} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default function Register({ navigation }) {
   return (
-    <View style={styles.background}>
-      <TouchableOpacity>
-        <Text 
-          style={styles.text}
-          onPress={() => navigation.navigate('Application')}
-        >
+    <LinearGradient 
+      style={styles.background} 
+      colors={['#B5304C', '#DC8875']}
+      start={{x: 0, y: 0}} 
+      end={{x: 1, y: 1}}
+    >
+      <SafeAreaView>
+        <Text style={styles.text}>
           Register
         </Text>
-      </TouchableOpacity>
-    </View>
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
 
@@ -20,20 +23,27 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 36,
     textAlign: 'center',
-    paddingBottom: 20
+    paddingBottom: 20,
+    color: 'white',
+    fontWeight: 'bold',
+    marginBottom: 50,
   },
   text: {
-    fontSize: 18,
+    fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: 'white'
+    color: 'white',
   },
   background: {
-    backgroundColor: 'red',
     flex: 1,
     justifyContent: 'center',
   },
   button: {
-    backgroundColor: 'green'
+    backgroundColor: 'white',
+    padding: 10,
+    margin: 20,
+    borderRadius: 40,
+    height: 60,
+    justifyContent: 'center',
   },
 });
