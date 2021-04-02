@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View, StyleSheet, TouchableOpacity, SafeAreaView} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-export default function Bookmarks({ navigation }) {
+export default function Register({ navigation }) {
   return (
     <LinearGradient 
       style={styles.background} 
@@ -12,7 +12,7 @@ export default function Bookmarks({ navigation }) {
     >
       <SafeAreaView>
         <Text style={styles.text}>
-          Bookmarks
+          Register
         </Text>
       </SafeAreaView>
     </LinearGradient>
