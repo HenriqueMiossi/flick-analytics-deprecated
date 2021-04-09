@@ -9,7 +9,10 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import DropDownPicker from 'react-native-dropdown-picker';
+
+import Picker from '../../../components/Picker';
+import TitleBar from '../../../components/TitleBar';
+import ProfileContainer from '../../../components/ProfileContainer';
 
 export default function Settings({ navigation }) {
   const [isEnabled, setIsEnabled] = useState(false);
@@ -22,57 +25,19 @@ export default function Settings({ navigation }) {
       end={{x: 1, y: 1}}
     >
       <SafeAreaView>
-        <View style={styles.titleContainer}>
-          <Text style={styles.title}>
-            Configurações
-          </Text>
-        </View>
-
+        <TitleBar title='Configurações'></TitleBar>
 
         <View style={styles.mainContainer}>
 
-          <TouchableOpacity style={styles.profileButton}>
-            <View style={styles.profileContainer}>
-              <Ionicons name={'person-sharp'} size={80} color={'#B5304C'}/>
-
-              <View style={styles.textContainer}>
-                <Text style={styles.profileName}>Username</Text>
-                <Text>Ver informações da conta</Text>
-              </View>
-
-              <Ionicons style={styles.arrowIcon} name={'chevron-forward-sharp'} size={24} color={'black'}/>
-
-            </View>
-          </TouchableOpacity>
+          <ProfileContainer />
 
           <View style={styles.itemsContainer}>
             <Text style={styles.text}>
               Idioma
             </Text>
-            
-            <DropDownPicker
-              items={[
-                  {label: 'Português', value: 'pt'},
-                  {label: 'English', value: 'us'},
-                  {label: 'Español', value: 'es'},
-              ]}
-              defaultValue={'pt'}
-              containerStyle={{width: 150, height: 40}}
-              style={styles.picker}
-              itemStyle={{
-                  justifyContent: 'center',
-              }}
-              dropDownStyle={{backgroundColor: '#fafafa'}}
-              labelStyle={{
-                fontSize: 16,
-                textAlign: 'center',
-                color: '#000'
-              }}
-              selectedLabelStyle={{
-                fontWeight: 'bold',
-              }}
-            />
+            <Picker />
           </View>
+
           <View style={styles.separatorLine}/>
 
           <View style={styles.itemsContainer}>
@@ -87,6 +52,7 @@ export default function Settings({ navigation }) {
               value={isEnabled}
             />
           </View>
+
           <View style={styles.separatorLine}/>
           
           <View>
@@ -97,6 +63,7 @@ export default function Settings({ navigation }) {
               <Ionicons name={'bug-sharp'} size={24} color={'#B5304C'}/>
             </TouchableOpacity>
           </View>
+          
           <View style={styles.separatorLine}/>
 
           <View style={styles.itemsContainer}>
@@ -107,6 +74,7 @@ export default function Settings({ navigation }) {
               0.1 - Alpha
             </Text>
           </View>
+          
         </View>
 
       </SafeAreaView>
@@ -115,20 +83,6 @@ export default function Settings({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 30,
-    textAlign: 'left',
-    paddingBottom: 20,
-    color: '#B5304C',
-    fontWeight: 'bold',
-  },
-  titleContainer: {
-    backgroundColor: 'white',
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 40,
-    paddingHorizontal: 30,
-    paddingTop: 30
-  },
   mainContainer: {
     backgroundColor: 'white',
     marginTop: 20,
@@ -137,31 +91,10 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 30,
   },
-  profileContainer: {
-    flexDirection: 'row',
-  },
-  textContainer: {
-    justifyContent: 'center',
-    flexShrink: 1,
-  },
-  profileName: {
-    fontSize: 36,
-    fontWeight: 'bold',
-  },
-  arrowIcon: {
-    alignSelf: 'center',
-    marginLeft: 'auto',
-  },
-  profileButton: {
-    marginBottom: 30,
-  },
   itemsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-  },
-  picker: {
-    backgroundColor: '#fafafa',
   },
   text: {
     fontSize: 16,
