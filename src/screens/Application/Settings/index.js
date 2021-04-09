@@ -9,7 +9,8 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import DropDownPicker from 'react-native-dropdown-picker';
+
+import Picker from '../../../components/Picker';
 import TitleBar from '../../../components/TitleBar';
 import ProfileContainer from '../../../components/ProfileContainer';
 
@@ -34,30 +35,9 @@ export default function Settings({ navigation }) {
             <Text style={styles.text}>
               Idioma
             </Text>
-            
-            <DropDownPicker
-              items={[
-                  {label: 'Português', value: 'pt'},
-                  {label: 'English', value: 'us'},
-                  {label: 'Español', value: 'es'},
-              ]}
-              defaultValue={'pt'}
-              containerStyle={{width: 150, height: 40}}
-              style={styles.picker}
-              itemStyle={{
-                  justifyContent: 'center',
-              }}
-              dropDownStyle={{backgroundColor: '#fafafa'}}
-              labelStyle={{
-                fontSize: 16,
-                textAlign: 'center',
-                color: '#000'
-              }}
-              selectedLabelStyle={{
-                fontWeight: 'bold',
-              }}
-            />
+            <Picker />
           </View>
+
           <View style={styles.separatorLine}/>
 
           <View style={styles.itemsContainer}>
@@ -72,6 +52,7 @@ export default function Settings({ navigation }) {
               value={isEnabled}
             />
           </View>
+
           <View style={styles.separatorLine}/>
           
           <View>
@@ -82,6 +63,7 @@ export default function Settings({ navigation }) {
               <Ionicons name={'bug-sharp'} size={24} color={'#B5304C'}/>
             </TouchableOpacity>
           </View>
+          
           <View style={styles.separatorLine}/>
 
           <View style={styles.itemsContainer}>
@@ -92,6 +74,7 @@ export default function Settings({ navigation }) {
               0.1 - Alpha
             </Text>
           </View>
+          
         </View>
 
       </SafeAreaView>
@@ -112,9 +95,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-  },
-  picker: {
-    backgroundColor: '#fafafa',
   },
   text: {
     fontSize: 16,
