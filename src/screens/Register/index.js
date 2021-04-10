@@ -15,7 +15,7 @@ import TitleBar from '../../components/TitleBar';
 export default function Register({ navigation }) {
   const [name, onChangeName] = React.useState(null);
   const [email, onChangeEmail] = React.useState(null);
-  const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : -35;
+  const keyboardVerticalOffset = Platform.OS === 'ios' ? -35 : -35;
   return (
     <LinearGradient 
       style={styles.background} 
@@ -84,7 +84,7 @@ export default function Register({ navigation }) {
             <TouchableOpacity 
               style={styles.loginButton}
             >
-              <Text style={styles.loginText}>
+              <Text style={styles.loginText} onPress={() => navigation.navigate('InitialPage')}>
                 Voltar
               </Text>
             </TouchableOpacity>
