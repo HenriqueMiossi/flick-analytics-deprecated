@@ -1,8 +1,11 @@
 import React from 'react';
-import {Text, View, StyleSheet, TouchableOpacity, SafeAreaView} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity, SafeAreaView, Image} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-export default function Dashboard({ navigation }) {
+import DashboardTitleBar from '../../../components/DashboardTitleBar';
+import KillDeathRatio from '../../../components/KillDeathRatioContainer';
+
+export default function Dashboard() {
   return (
     <LinearGradient 
       style={styles.background} 
@@ -11,39 +14,25 @@ export default function Dashboard({ navigation }) {
       end={{x: 1, y: 1}}
     >
       <SafeAreaView>
-        <Text style={styles.text}>
-          Dashboard
-        </Text>
+        <DashboardTitleBar title={'Dashboard'}/>
+
+        <KillDeathRatio />
+
       </SafeAreaView>
     </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 36,
-    textAlign: 'center',
-    paddingBottom: 20,
-    color: 'white',
-    fontWeight: 'bold',
-    marginBottom: 50,
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: 'white',
-  },
   background: {
     flex: 1,
-    justifyContent: 'center',
   },
-  button: {
+  mainContainer: {
     backgroundColor: 'white',
-    padding: 10,
-    margin: 20,
-    borderRadius: 40,
-    height: 60,
-    justifyContent: 'center',
+    marginTop: 20,
+    marginHorizontal: 10,
+    borderRadius: 20,
+    paddingVertical: 20,
+    paddingHorizontal: 30,
   },
 });
